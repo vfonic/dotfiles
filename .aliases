@@ -1,0 +1,4 @@
+alias ll="ls -lahG"
+alias gs="git status -s"
+alias ga="git add ."
+alias shrink="~/scripts/image\ shrink.sh"
