@@ -1,0 +1,6 @@
+alias gs="git status -s"
+alias ga="git add ."
+alias gcm="git commit -m"
+alias gca="git add .; git commit -m"
+alias gam="git add .; git commit --amend -C HEAD"
+alias gp="git push"
