@@ -40,5 +40,8 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/apache-maven-3.0.4/bin:/opt/local/bin:/opt/local/sbin:/opt/iOSOpenDev/bin:/usr/local/mysql/bin:/usr/local/pear/bin:/usr/local/rvm/gems/ruby-1.9.3-p286/bin:/usr/local/rvm/gems/ruby-1.9.3-p286@global/bin:/usr/local/rvm/rubies/ruby-1.9.3-p286/bin:/usr/local/rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/opt/ImageMagick/bin
 source "/usr/local/rvm/scripts/rvm"
 
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
+
 . ~/.aliases
 . ~/.git_aliases
