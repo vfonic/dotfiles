@@ -5,9 +5,8 @@ function generate_jar_file
   old_directory=`pwd`
   
   cd "$1"
-  
-  # only build from master branch
-  git checkout master
+  echo "Build:"
+  pwd
   
   # build application
   ant
