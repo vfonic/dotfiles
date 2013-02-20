@@ -6,7 +6,7 @@ function update_updater {
   git checkout master
   git pull origin master
   git checkout $2
-  git merge master -m "Merge branch 'master' into $2"
+  git merge master -m "Merge branch 'master' into $2" -X theirs
   cd ..
   echo ""
 }
@@ -14,6 +14,7 @@ function update_updater {
 function update_licence {
   echo Updating licence of "$1"
   cd ~/Developer/Java/"$1"/src/it/sitarlabs/licence
+  git checkout -f
   git pull
   echo ""
 }
