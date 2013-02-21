@@ -3,6 +3,7 @@
 function update_updater {
   echo Updating "$1"
   cd ~/Developer/Java/"$1 Updater"
+  git checkout -f
   git checkout master
   git pull origin master
   git checkout $2
