@@ -25,14 +25,22 @@ if [[ "$#" == "0" ]]; then
   sudo port upgrade outdated
   sudo softwareupdate -ia
 elif [[ "$#" == "1" ]]; then
-  if [[ "$1" == "dls" ]]; then
-    ~/scripts/ultimate\ ant\ script.sh DLS\ -\ Functional\ Systems
-  elif [[ "$1" == "btt" ]]; then
+  if [[ "$1" == "btt" ]]; then
     ~/scripts/ultimate\ ant\ script.sh BioTricoTest
+  elif [[ "$1" == "bttm" ]]; then
+    ~/scripts/ultimate\ ant\ script.sh BioTricoTest\ Manager
   elif [[ "$1" == "tt" ]]; then
     ~/scripts/ultimate\ ant\ script.sh TRAINING\ TEST
+  elif [[ "$1" == "ttm" ]]; then
+    ~/scripts/ultimate\ ant\ script.sh TRAINING\ TEST\ Manager
   elif [[ "$1" == "st" ]]; then
     ~/scripts/ultimate\ ant\ script.sh Slim\ test
+  elif [[ "$1" == "stm" ]]; then
+    ~/scripts/ultimate\ ant\ script.sh Slim\ test\ Manager
+  elif [[ "$1" == "dls" ]]; then
+    ~/scripts/ultimate\ ant\ script.sh DLS\ -\ Functional\ Systems
+  elif [[ "$1" == "dlsm" ]]; then
+    ~/scripts/ultimate\ ant\ script.sh DLS\ -\ Functional\ Systems\ Manager
   elif [[ "$1" == "updater" ]]; then
     update_updater "BioTricoTest" "biotricotest"
     update_updater "BioTricoTest Manager" "biotricotest-manager"
