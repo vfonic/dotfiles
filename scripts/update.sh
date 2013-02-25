@@ -24,38 +24,25 @@ if [[ "$#" == "0" ]]; then
   sudo port selfupdate
   sudo port upgrade outdated
   sudo softwareupdate -ia
-elif [[ "$#" == "1" ]]; then
-  if [[ "$1" == "btt" ]]; then
-    ~/scripts/ultimate\ ant\ script.sh BioTricoTest
-  elif [[ "$1" == "bttm" ]]; then
-    ~/scripts/ultimate\ ant\ script.sh BioTricoTest\ Manager
-  elif [[ "$1" == "tt" ]]; then
-    ~/scripts/ultimate\ ant\ script.sh TRAINING\ TEST
-  elif [[ "$1" == "ttm" ]]; then
-    ~/scripts/ultimate\ ant\ script.sh TRAINING\ TEST\ Manager
-  elif [[ "$1" == "st" ]]; then
-    ~/scripts/ultimate\ ant\ script.sh Slim\ test
-  elif [[ "$1" == "stm" ]]; then
-    ~/scripts/ultimate\ ant\ script.sh Slim\ test\ Manager
-  elif [[ "$1" == "dls" ]]; then
-    ~/scripts/ultimate\ ant\ script.sh DLS\ -\ Functional\ Systems
-  elif [[ "$1" == "dlsm" ]]; then
-    ~/scripts/ultimate\ ant\ script.sh DLS\ -\ Functional\ Systems\ Manager
-  elif [[ "$1" == "updater" ]]; then
-    update_updater "BioTricoTest" "biotricotest"
-    update_updater "BioTricoTest Manager" "biotricotest-manager"
-    update_updater "DLS - Functional Systems" "functionalsystems"
-    update_updater "DLS - Functional Systems Manager" "functionalsystems-manager"
-    update_updater "Slim test" "slimtest"
-    update_updater "Slim test Manager" "slimtest-manager"
-    update_updater "TRAINING TEST" "trainingtest"
-    update_updater "TRAINING TEST Manager" "trainingtest-manager"
-  elif [[ "$1" == "licence" ]]; then
-    update_licence "BioTricoTest" "biotricotest"
-    update_licence "DLS - Functional Systems" "functionalsystems"
-    update_licence "Slim test" "slimtest"
-    update_licence "TRAINING TEST" "trainingtest"
-  fi
-else
-  echo "Wrong number of arguments"
+elif [[ "$1" == "btt" ]]; then
+  ~/scripts/ultimate\ ant\ script.sh BioTricoTest "${@:2}"
+elif [[ "$1" == "tt" ]]; then
+  ~/scripts/ultimate\ ant\ script.sh TRAINING\ TEST "${@:2}"
+elif [[ "$1" == "st" ]]; then
+  ~/scripts/ultimate\ ant\ script.sh Slim\ test "${@:2}"
+elif [[ "$1" == "dls" ]]; then
+  ~/scripts/ultimate\ ant\ script.sh DLS\ -\ Functional\ Systems "${@:2}"
+elif [[ "$1" == "mngr" ]]; then
+  ~/scripts/ultimate\ ant\ script.sh Sitar\ Application\ Manager "${@:2}"
+elif [[ "$1" == "updater" ]]; then
+  update_updater "BioTricoTest" "biotricotest"
+  update_updater "TRAINING TEST" "trainingtest"
+  update_updater "Slim test" "slimtest"
+  update_updater "DLS - Functional Systems" "functionalsystems"
+  update_updater "Sitar Application Manager" "application-manager"
+elif [[ "$1" == "licence" ]]; then
+  update_licence "BioTricoTest" "biotricotest"
+  update_licence "TRAINING TEST" "trainingtest"
+  update_licence "Slim test" "slimtest"
+  update_licence "DLS - Functional Systems" "functionalsystems"
 fi
