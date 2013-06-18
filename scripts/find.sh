@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -rn $1 .
+grep -rni $1 .
