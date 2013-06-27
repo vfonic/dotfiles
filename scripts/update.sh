@@ -45,4 +45,14 @@ elif [[ "$1" == "licence" ]]; then
   update_licence "TRAINING TEST" "trainingtest"
   update_licence "Slim test" "slimtest"
   update_licence "DLS - Functional Systems" "functionalsystems"
+elif [[ "$1" == "rvm" ]]; then
+  rvm get stable
+elif [[ "$1" == "ruby" ]]; then
+  echo "To update Ruby version, follow these instructions:"
+  echo "rvm list"
+  echo "rvm list known"
+  echo "rvm install 2.0.0"
+  echo "rvm --default use 2.0.0"
+elif [[ "$1" == "gems" ]]; then
+  rvm all do gem update
 fi
