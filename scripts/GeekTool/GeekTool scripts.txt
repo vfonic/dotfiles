@@ -1,20 +1,18 @@
 Calendar:
 cal
 
-Weather "Tomorrow will be...":
-curl -s http://www.wunderground.com/q/zmw:00000.1.14240 | awk '/Today is/ || /Tomorrow is/' | textutil -convert txt -stdin -stdout -format html | awk '{ if ($1 == "Today") print "Today is", $0; else print "Tomorrow will be", $0; }' | sed -E 's/ (Today|Tomorrow) is forecast to be//'
+Weather "Tomorrow will be..." + Two Day Forecast:
+curl -s http://www.wunderground.com/q/zmw:00000.1.14445 | awk '/Today is/ || /Tomorrow is/' | textutil -convert txt -stdin -stdout -format html | awk '{ if ($1 == "Today") print "Today is", $0; else print "Tomorrow will be", $0; }' | sed -E 's/ (Today|Tomorrow) is forecast to be//';
+curl --silent "http://xml.weather.yahoo.com/forecastrss?p=HRXX0004&u=c" | grep -E '(High:)' | sed -e 's/<BR \/>//' -e 's/<b>//' -e 's/<\/b>//' -e 's/<BR \/>//' -e 's/<br \/>//'
 
 Weather conditions & temperature:
-curl --silent "http://xml.weather.yahoo.com/forecastrss?p=HRXX0005&u=c" | grep -E 'C<BR' | textutil -convert txt -stdin -stdout -format html
+curl --silent "http://xml.weather.yahoo.com/forecastrss?p=HRXX0004&u=c" | grep -E 'C<BR' | textutil -convert txt -stdin -stdout -format html
 
 Weather Grab Image Script:
-curl --silent "http://weather.yahoo.com/croatia/grad-zagreb/zagreb-851128/?unit=c" | grep "forecast-icon" | sed "s/.*background\\:url(\\'\\(.*\\)\\')\\;\\ _background.*/\\1/" | xargs curl --silent -o weather.png
+curl --silent "http://weather.yahoo.com/republika-hrvatska/splitsko-dalmatinska/split-850357" | grep "forecast-icon" | sed "s/.*background\\:url(\\'\\(.*\\)\\')\\;\\ _background.*/\\1/" | xargs curl --silent -o weather.png
 
 Weather image preview:
 file://localhost/Volumes/Macintosh HD/Users/viktorfonic/scripts/GeekTool/weather.png
-
-Two Day Forecast:
-curl --silent "http://xml.weather.yahoo.com/forecastrss?p=HRXX0005&u=c" | grep -E '(High:)' | sed -e 's/<BR \/>//' -e 's/<b>//' -e 's/<\/b>//' -e 's/<BR \/>//' -e 's/<br \/>//'
 
 External IP:
 echo External IP: `curl -s http://checkip.dyndns.org/ | sed 's/[a-zA-Z<>/ :]//g'`
