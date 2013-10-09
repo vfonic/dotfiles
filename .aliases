@@ -21,3 +21,9 @@ alias g="./gradlew"
 alias run="~/scripts/run\ android\ application.sh"
 alias adb="/Applications/Android\ Studio.app/sdk/platform-tools/adb"
 alias fastboot="/Applications/Android\ Studio.app/sdk/platform-tools/fastboot"
+alias connect="~/scripts/connect.sh"
+alias h="heroku"
+hl()  { heroku $* --app lostmyname }
+hls() { heroku $* --app lostmyname-staging }
+alias lmn="rb; cd LostMy.Name/website"
+alias simulator="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator\.platform/Developer/Applications/iPhone\ Simulator.app"

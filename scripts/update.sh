@@ -23,7 +23,8 @@ function update_licence {
 if [[ "$#" == "0" ]]; then
   sudo port selfupdate
   sudo port upgrade outdated
-  sudo softwareupdate -ia
+  sudo port clean --all installed
+  sudo port -f uninstall inactive
 elif [[ "$1" == "btt" ]]; then
   ~/scripts/ultimate\ ant\ script.sh BioTricoTest "${@:2}"
 elif [[ "$1" == "tt" ]]; then
