@@ -21,10 +21,7 @@ function update_licence {
 }
 
 if [[ "$#" == "0" ]]; then
-  sudo port selfupdate
-  sudo port upgrade outdated
-  sudo port clean --all installed
-  sudo port -f uninstall inactive
+  brew doctor && brew update && brew upgrade
 elif [[ "$1" == "btt" ]]; then
   ~/scripts/ultimate\ ant\ script.sh BioTricoTest "${@:2}"
 elif [[ "$1" == "tt" ]]; then
@@ -47,9 +44,9 @@ elif [[ "$1" == "licence" ]]; then
   update_licence "Slim test" "slimtest"
   update_licence "DLS - Functional Systems" "functionalsystems"
 elif [[ "$1" == "ruby" ]]; then
-  rvm get stable
-  rvm upgrade 2.0.0
-  rvm --default 2.0.0
+  rvmsudo rvm get stable
+  rvm upgrade 2.1.2
+  rvm --default 2.1.2
 elif [[ "$1" == "gems" ]]; then
   rvm all do gem update
 fi

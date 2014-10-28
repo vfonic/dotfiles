@@ -2,8 +2,8 @@ Calendar:
 cal
 
 Weather "Tomorrow will be..." + Two Day Forecast:
-curl -s http://www.wunderground.com/q/zmw:00000.1.14445 | awk '/Today is/ || /Tomorrow is/' | textutil -convert txt -stdin -stdout -format html | awk '{ if ($1 == "Today") print "Today is", $0; else print "Tomorrow will be", $0; }' | sed -E 's/ (Today|Tomorrow) is forecast to be//';
-curl --silent "http://xml.weather.yahoo.com/forecastrss?p=HRXX0004&u=c" | grep -E '(High:)' | sed -e 's/<BR \/>//' -e 's/<b>//' -e 's/<\/b>//' -e 's/<BR \/>//' -e 's/<br \/>//'
+curl -s http://www.wunderground.com/cgi-bin/findweather/getForecast\?query\=Dublin%2C+Ireland | awk '/Today is/ || /Tomorrow is/' | sed -E 's/[^T]+//' | textutil -convert txt -stdin -stdout -format html | awk '{ if ($1 == "Today") print "Today is", $0; else print "Tomorrow will be", $0; }' | sed -E 's/ (Today|Tomorrow) is forecast to be//' | sed -E 's/\..*/./';
+curl --silent "http://xml.weather.yahoo.com/forecastrss?w=560743&u=c" | grep -E '(High:)' | sed -e 's/<BR \/>//' -e 's/<b>//' -e 's/<\/b>//' -e 's/<BR \/>//' -e 's/<br \/>//'
 
 Weather conditions & temperature:
 curl --silent "http://xml.weather.yahoo.com/forecastrss?p=HRXX0004&u=c" | grep -E 'C<BR' | textutil -convert txt -stdin -stdout -format html
