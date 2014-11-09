@@ -2,11 +2,14 @@
 if [[ "$#" == "0" ]]; then
     echo "Usage: spoj_submit <problemcode>"
     echo "e.g. $ spoj_submit frequent"
-    echo "Where problemcode is all lowercase and your source file is called frequent.cpp"
+    echo "Where problemcode is all lowercase and your source file is called <problemcode>.cpp"
     echo "OR"
     echo "spoj_submit <problemcode> <filename>"
     echo "Where filename is the relative or full path to the source file"
     echo "e.g. $ spoj_submit frequent main.cpp"
+    echo "Uses ~/.secrets file to store your username and password in format:"
+    echo "spoj_username=<username>"
+    echo "spoj_password=<password>"
 elif [[ "$#" == "1" ]]; then
     source ~/.secrets
     problemcode=`echo $1 | tr [a-z] [A-Z]`
